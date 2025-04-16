@@ -1,0 +1,601 @@
+/* Стили для главной страницы */
+
+/* Основной контент */
+.home-content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+/* Баннер с автопрокруткой */
+.banner-slider {
+    position: relative;
+    width: 100%;
+    height: 450px;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.banner-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.banner-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    display: flex;
+}
+
+.banner-slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.banner-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.banner-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.5) 100%);
+    z-index: 2;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 3;
+    padding: 3rem;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.banner-badge {
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    background-color: var(--red-accent);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.banner-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-family: 'Poppins', sans-serif;
+}
+
+.banner-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    max-width: 90%;
+}
+
+.banner-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.banner-rating {
+    position: relative;
+    font-weight: 700;
+    color: var(--text-primary);
+    padding-left: 1.5rem;
+}
+
+.banner-rating::before {
+    content: '★';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #FFD700;
+}
+
+.banner-episodes, .banner-genre {
+    position: relative;
+    padding-left: 1.2rem;
+}
+
+.banner-episodes::before, .banner-genre::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--blue-accent);
+}
+
+.banner-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.banner-controls {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.banner-prev, .banner-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.banner-prev:hover, .banner-next:hover {
+    background-color: var(--blue-accent);
+}
+
+.banner-dots {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.banner-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.banner-dot.active {
+    background-color: var(--blue-accent);
+    width: 20px;
+    border-radius: 10px;
+}
+
+/* Секции аниме */
+.anime-section {
+    width: 100%;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    position: relative;
+    padding-left: 1rem;
+}
+
+.section-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 1.5rem;
+    background: linear-gradient(to bottom, var(--green-accent), var(--blue-accent));
+    border-radius: 2px;
+}
+
+.section-link {
+    color: var(--blue-accent);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color var(--transition-fast);
+}
+
+.section-link:hover {
+    color: var(--green-accent);
+    text-decoration: underline;
+}
+
+/* Контейнер для прокрутки */
+.anime-scroll-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.scroll-arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--bg-element);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+    z-index: 2;
+}
+
+.scroll-arrow:hover {
+    background-color: var(--blue-accent);
+    color: white;
+    border-color: var(--blue-accent);
+}
+
+.anime-cards-container {
+    display: flex;
+    gap: 1.25rem;
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    padding: 0.5rem 0.25rem;
+    scroll-behavior: smooth;
+}
+
+/* Скрытие полосы прокрутки */
+.anime-cards-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Карточки аниме */
+.anime-card {
+    flex: 0 0 auto;
+    width: 240px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: transform var(--transition-normal);
+    transform-origin: center bottom;
+}
+
+.anime-card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.anime-card-image {
+    position: relative;
+    width: 100%;
+    height: 340px;
+    overflow: hidden;
+    border-radius: var(--radius-md);
+}
+
+.anime-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-normal);
+}
+
+.anime-card:hover .anime-card-image img {
+    transform: scale(1.1);
+}
+
+.anime-card-badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.anime-card-badge {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border-radius: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.anime-card-badge.ongoing {
+    background-color: var(--blue-accent);
+    color: white;
+}
+
+.anime-card-badge.completed {
+    background-color: var(--green-accent);
+    color: white;
+}
+
+.anime-card-badge.watched {
+    background-color: #9c27b0;
+    color: white;
+}
+
+.anime-card-stats {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 2;
+    display: flex;
+    gap: 1rem;
+}
+
+.stats-item {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.3rem 0.6rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    color: white;
+}
+
+.anime-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 20%, rgba(0, 0, 0, 0.7) 60%, rgba(0, 0, 0, 0.4) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1.25rem;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    z-index: 3;
+}
+
+.anime-card:hover .anime-card-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.overlay-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+}
+
+.overlay-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 1rem;
+    font-size: 0.75rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    color: var(--text-secondary);
+}
+
+.detail-value {
+    color: white;
+    font-weight: 500;
+}
+
+.overlay-progress {
+    margin-top: 0.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--green-accent);
+    border-radius: 3px;
+}
+
+.progress-text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.continue-link {
+    color: var(--green-accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.continue-link:hover {
+    text-decoration: underline;
+}
+
+.btn-sm {
+    padding: 0.4rem 1rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.anime-card-info {
+    padding: 1rem 0;
+}
+
+.anime-card-title {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.anime-card-meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.meta-item {
+    position: relative;
+}
+
+.meta-item:not(:first-child) {
+    padding-left: 1rem;
+}
+
+.meta-item:not(:first-child)::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-tertiary);
+}
+
+.watched-meta {
+    color: #9c27b0;
+}
+
+/* Пустые карточки для демонстрации прокрутки */
+.placeholder-card .anime-card-image {
+    opacity: 0.3;
+}
+
+/* Адаптивность */
+@media (max-width: 992px) {
+    .banner-content {
+        width: 70%;
+        padding: 2rem;
+    }
+
+    .banner-title {
+        font-size: 2rem;
+    }
+
+    .banner-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-slider {
+        height: 400px;
+    }
+
+    .banner-content {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .banner-title {
+        font-size: 1.75rem;
+    }
+
+    .banner-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .banner-buttons .btn {
+        width: 100%;
+    }
+
+    .banner-controls {
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .section-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-slider {
+        height: 350px;
+    }
+
+    .banner-content {
+        padding: 1rem;
+    }
+
+    .banner-title {
+        font-size: 1.5rem;
+    }
+
+    .banner-description {
+        display: none;
+    }
+
+    .banner-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}

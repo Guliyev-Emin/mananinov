@@ -1,0 +1,5 @@
+@mananinov.auth_HostAddress = http://localhost:5191
+
+Accept: application/json
+
+###

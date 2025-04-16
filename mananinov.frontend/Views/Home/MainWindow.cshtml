@@ -1,0 +1,483 @@
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true"/>
+}
+
+<!-- Основной контент  -->
+<main class="main-content home-content">
+    <!-- Баннер с автопрокруткой -->
+    <section class="banner-slider">
+        <div class="banner-container">
+            <div class="banner-slide active">
+                <div class="banner-image" style="background-image: url('favicon.ico');"></div>
+                <!-- /api/placeholder/1200/450 -->
+                <div class="banner-content">
+                    <span class="banner-badge">Премьера сезона</span>
+                    <h2 class="banner-title">Атака титанов: Финальный сезон</h2>
+                    <p class="banner-description">Последняя битва человечества против титанов подходит к решающей
+                        стадии. Судьбы всего мира будут решены в эпической схватке.</p>
+                    <div class="banner-meta">
+                        <span class="banner-rating">9.8</span>
+                        <span class="banner-episodes">Серия 12 из 16</span>
+                        <span class="banner-genre">Экшен, Драма, Фэнтези</span>
+                    </div>
+                    <div class="banner-buttons">
+                        <a href="#" class="btn btn-primary">Смотреть</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-slide">
+                <div class="banner-image" style="background-image: url('favicon.ico');"></div>
+                <div class="banner-content">
+                    <span class="banner-badge">Новинка</span>
+                    <h2 class="banner-title">Стальной алхимик: Братство</h2>
+                    <p class="banner-description">Братья Элрики ищут философский камень, чтобы вернуть свои тела после
+                        провала алхимического ритуала. Их путь полон опасностей и тайн.</p>
+                    <div class="banner-meta">
+                        <span class="banner-rating">9.6</span>
+                        <span class="banner-episodes">64 серии</span>
+                        <span class="banner-genre">Приключения, Фэнтези, Драма</span>
+                    </div>
+                    <div class="banner-buttons">
+                        <a href="#" class="btn btn-primary">Смотреть</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            <div class="banner-slide">
+                <div class="banner-image" style="background-image: url('favicon.ico');"></div>
+                <div class="banner-content">
+                    <span class="banner-badge">Эксклюзив</span>
+                    <h2 class="banner-title">Клинок, рассекающий демонов</h2>
+                    <p class="banner-description">Танджиро Камадо становится охотником на демонов после того, как его
+                        семья была убита, а младшая сестра превратилась в демона.</p>
+                    <div class="banner-meta">
+                        <span class="banner-rating">9.4</span>
+                        <span class="banner-episodes">Сезон 2</span>
+                        <span class="banner-genre">Фэнтези, Боевик, Сверхъестественное</span>
+                    </div>
+                    <div class="banner-buttons">
+                        <a href="#" class="btn btn-primary">Смотреть</a>
+                        <a href="#" class="btn btn-outline">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="banner-controls">
+            <button class="banner-prev">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="banner-dots">
+                <span class="banner-dot active"></span>
+                <span class="banner-dot"></span>
+                <span class="banner-dot"></span>
+            </div>
+            <button class="banner-next">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Секция: Нынешний сезон -->
+    <section class="anime-section">
+        <div class="section-header">
+            <h2 class="section-title">Нынешний сезон</h2>
+            <a href="#" class="section-link">Смотреть все</a>
+        </div>
+        <div class="anime-scroll-container">
+            <button class="scroll-arrow scroll-left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="anime-cards-container">
+                <div class="anime-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="Атака титанов">
+                        <div class="anime-card-badges">
+                            <span class="anime-card-badge ongoing">Онгоинг</span>
+                        </div>
+                        <div class="anime-card-stats">
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.0489 3.92705C11.3483 3.00574 12.6517 3.00574 12.9511 3.92705L14.0206 7.21885C14.1545 7.63087 14.5385 7.90983 14.9717 7.90983H18.4329C19.4016 7.90983 19.8044 9.14945 19.0207 9.71885L16.2205 11.7533C15.8684 12.0079 15.7234 12.4593 15.8572 12.8713L16.9268 16.1631C17.2261 17.0844 16.1717 17.8506 15.388 17.2812L12.5878 15.2467C12.2356 14.9921 11.7644 14.9921 11.4122 15.2467L8.61204 17.2812C7.82833 17.8506 6.77385 17.0844 7.0732 16.1631L8.14277 12.8713C8.27665 12.4593 8.13159 12.0079 7.7795 11.7533L4.97927 9.71885C4.19556 9.14945 4.59838 7.90983 5.56712 7.90983H9.02832C9.46154 7.90983 9.8455 7.63087 9.97937 7.21885L11.0489 3.92705Z"
+                                        fill="#FFD700"/>
+                                </svg>
+                                <span>9.8</span>
+                            </div>
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                        fill="currentColor"/>
+                                    <path
+                                        d="M2 12C2 12 5.63636 5 12 5C18.3636 5 22 12 22 12C22 12 18.3636 19 12 19C5.63636 19 2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                                <span>1.2M</span>
+                            </div>
+                        </div>
+                        <div class="anime-card-overlay">
+                            <div class="overlay-content">
+                                <h4>Атака титанов: Финальный сезон</h4>
+                                <div class="overlay-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Статус:</span>
+                                        <span class="detail-value">Онгоинг</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Серии:</span>
+                                        <span class="detail-value">12/16</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Сезон:</span>
+                                        <span class="detail-value">Зима 2023</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Жанры:</span>
+                                        <span class="detail-value">Экшен, Драма, Фэнтези</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Страна:</span>
+                                        <span class="detail-value">Япония</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Тип:</span>
+                                        <span class="detail-value">ТВ Сериал</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Возраст:</span>
+                                        <span class="detail-value">16+</span>
+                                    </div>
+                                </div>
+                                <a asp-area="" asp-controller="Home" asp-action="Watch" class="btn btn-outline btn-sm">Смотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anime-card-info">
+                        <h3 class="anime-card-title">Атака титанов</h3>
+                        <div class="anime-card-meta">
+                            <span class="meta-item">2023</span>
+                            <span class="meta-item">Серия 12</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дополнительные карточки (пустышки для демонстрации прокрутки) -->
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-arrow scroll-right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Секция: Популярное аниме -->
+    <section class="anime-section">
+        <div class="section-header">
+            <h2 class="section-title">Популярное аниме</h2>
+            <a href="#" class="section-link">Смотреть все</a>
+        </div>
+        <div class="anime-scroll-container">
+            <button class="scroll-arrow scroll-left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="anime-cards-container">
+                <div class="anime-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="Клинок, рассекающий демонов">
+                        <div class="anime-card-badges">
+                            <span class="anime-card-badge completed">Завершен</span>
+                        </div>
+                        <div class="anime-card-stats">
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.0489 3.92705C11.3483 3.00574 12.6517 3.00574 12.9511 3.92705L14.0206 7.21885C14.1545 7.63087 14.5385 7.90983 14.9717 7.90983H18.4329C19.4016 7.90983 19.8044 9.14945 19.0207 9.71885L16.2205 11.7533C15.8684 12.0079 15.7234 12.4593 15.8572 12.8713L16.9268 16.1631C17.2261 17.0844 16.1717 17.8506 15.388 17.2812L12.5878 15.2467C12.2356 14.9921 11.7644 14.9921 11.4122 15.2467L8.61204 17.2812C7.82833 17.8506 6.77385 17.0844 7.0732 16.1631L8.14277 12.8713C8.27665 12.4593 8.13159 12.0079 7.7795 11.7533L4.97927 9.71885C4.19556 9.14945 4.59838 7.90983 5.56712 7.90983H9.02832C9.46154 7.90983 9.8455 7.63087 9.97937 7.21885L11.0489 3.92705Z"
+                                        fill="#FFD700"/>
+                                </svg>
+                                <span>9.7</span>
+                            </div>
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                        fill="currentColor"/>
+                                    <path
+                                        d="M2 12C2 12 5.63636 5 12 5C18.3636 5 22 12 22 12C22 12 18.3636 19 12 19C5.63636 19 2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                                <span>5.8M</span>
+                            </div>
+                        </div>
+                        <div class="anime-card-overlay">
+                            <div class="overlay-content">
+                                <h4>Клинок, рассекающий демонов</h4>
+                                <div class="overlay-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Статус:</span>
+                                        <span class="detail-value">Завершён</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Серии:</span>
+                                        <span class="detail-value">26</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Сезон:</span>
+                                        <span class="detail-value">Весна 2019</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Жанры:</span>
+                                        <span class="detail-value">Экшен, Приключения, Сверхъестественное</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Страна:</span>
+                                        <span class="detail-value">Япония</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Тип:</span>
+                                        <span class="detail-value">ТВ Сериал</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Возраст:</span>
+                                        <span class="detail-value">16+</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline btn-sm">Смотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anime-card-info">
+                        <h3 class="anime-card-title">Клинок, рассекающий демонов</h3>
+                        <div class="anime-card-meta">
+                            <span class="meta-item">2019</span>
+                            <span class="meta-item">26 серий</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дополнительные карточки (пустышки для демонстрации прокрутки) -->
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-arrow scroll-right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Секция: Недавно просмотренные -->
+    <section class="anime-section">
+        <div class="section-header">
+            <h2 class="section-title">Недавно просмотренные</h2>
+            <a href="#" class="section-link">История просмотров</a>
+        </div>
+        <div class="anime-scroll-container">
+            <button class="scroll-arrow scroll-left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="anime-cards-container">
+                <div class="anime-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="Стальной алхимик: Братство">
+                        <div class="anime-card-badges">
+                            <span class="anime-card-badge watched">Просмотрено 80%</span>
+                        </div>
+                        <div class="anime-card-stats">
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.0489 3.92705C11.3483 3.00574 12.6517 3.00574 12.9511 3.92705L14.0206 7.21885C14.1545 7.63087 14.5385 7.90983 14.9717 7.90983H18.4329C19.4016 7.90983 19.8044 9.14945 19.0207 9.71885L16.2205 11.7533C15.8684 12.0079 15.7234 12.4593 15.8572 12.8713L16.9268 16.1631C17.2261 17.0844 16.1717 17.8506 15.388 17.2812L12.5878 15.2467C12.2356 14.9921 11.7644 14.9921 11.4122 15.2467L8.61204 17.2812C7.82833 17.8506 6.77385 17.0844 7.0732 16.1631L8.14277 12.8713C8.27665 12.4593 8.13159 12.0079 7.7795 11.7533L4.97927 9.71885C4.19556 9.14945 4.59838 7.90983 5.56712 7.90983H9.02832C9.46154 7.90983 9.8455 7.63087 9.97937 7.21885L11.0489 3.92705Z"
+                                        fill="#FFD700"/>
+                                </svg>
+                                <span>9.6</span>
+                            </div>
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                        fill="currentColor"/>
+                                    <path
+                                        d="M2 12C2 12 5.63636 5 12 5C18.3636 5 22 12 22 12C22 12 18.3636 19 12 19C5.63636 19 2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                                <span>4.2M</span>
+                            </div>
+                        </div>
+                        <div class="anime-card-overlay">
+                            <div class="overlay-content">
+                                <h4>Стальной алхимик: Братство</h4>
+                                <div class="overlay-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Статус:</span>
+                                        <span class="detail-value">Завершён</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Серии:</span>
+                                        <span class="detail-value">64</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Сезон:</span>
+                                        <span class="detail-value">Весна 2009</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Жанры:</span>
+                                        <span class="detail-value">Экшен, Приключения, Драма, Фэнтези</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Страна:</span>
+                                        <span class="detail-value">Япония</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Тип:</span>
+                                        <span class="detail-value">ТВ Сериал</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Возраст:</span>
+                                        <span class="detail-value">16+</span>
+                                    </div>
+                                </div>
+                                <div class="overlay-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 80%;"></div>
+                                    </div>
+                                    <div class="progress-text">
+                                        <span>Просмотрено 52 из 64</span>
+                                        <a href="#" class="continue-link">Продолжить</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anime-card-info">
+                        <h3 class="anime-card-title">Стальной алхимик: Братство</h3>
+                        <div class="anime-card-meta">
+                            <span class="meta-item">2009</span>
+                            <span class="meta-item watched-meta">52/64</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Дополнительные карточки (пустышки для демонстрации прокрутки) -->
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+                <div class="anime-card placeholder-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="">
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-arrow scroll-right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+</main>
+
+@section Scripts
+{
+    <script src="~/js/home.js" asp-append-version="true"></script>
+    <script src="~/js/main.js" asp-append-version="true"></script>
+}

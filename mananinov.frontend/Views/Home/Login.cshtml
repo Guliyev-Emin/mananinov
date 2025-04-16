@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "Вход";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/home.css" asp-append-version="true"/>
+}
+
+<main class="main-content">
+    <div class="login-container">
+        <div class="login-header">
+            <h1 class="form-logo">mananinov.com</h1>
+            <p class="subtitle">Ваш вход в мир аниме</p>
+        </div>
+
+        <form id="login-form">
+            <div class="form-group">
+                <label for="username">Имя пользователя</label>
+                <div class="input-wrapper">
+                    <input class="form-control" id="username" placeholder="Введите имя пользователя" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <div class="input-wrapper">
+                    <input class="form-control" id="password" placeholder="Введите пароль" type="password">
+                </div>
+            </div>
+
+            <div class="options">
+                <label class="remember">
+                    <input type="checkbox">
+                    Запомнить меня
+                </label>
+                <a class="forgot-password" href="#">Забыли пароль?</a>
+            </div>
+
+            <button class="btn btn-submit" type="submit">Войти</button>
+
+            <div class="divider">или продолжить с</div>
+
+            <div class="social-login">
+                <div class="social-btn">
+                    <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M20.2837 12.0002C20.2837 11.4722 20.2337 10.9592 20.1487 10.4622H12.2207V13.2642H16.7727C16.5857 14.1672 16.0637 14.9422 15.2767 15.4672V17.4652H17.9097C19.3537 16.1192 20.2837 14.2602 20.2837 12.0002Z"
+                            fill="#4285F4"/>
+                        <path
+                            d="M12.2203 20.0007C14.4183 20.0007 16.2693 19.1927 17.9103 17.4647L15.2773 15.4667C14.6053 15.9147 13.7213 16.1807 12.2203 16.1807C9.99432 16.1807 8.10632 14.6847 7.45832 12.6607H4.73132V14.7197C6.36332 17.8937 9.09632 20.0007 12.2203 20.0007Z"
+                            fill="#34A853"/>
+                        <path
+                            d="M7.45816 12.6605C7.30316 12.2125 7.21516 11.7365 7.21516 11.2505C7.21516 10.7645 7.30316 10.2885 7.45816 9.84051V7.78151H4.73116C4.14516 8.83751 3.80916 10.0125 3.80916 11.2505C3.80916 12.4885 4.14516 13.6635 4.73116 14.7195L7.45816 12.6605Z"
+                            fill="#FBBC05"/>
+                        <path
+                            d="M12.2203 6.32031C13.4053 6.32031 14.4683 6.73631 15.2923 7.52031L17.6353 5.17731C16.2693 3.90031 14.4183 3.12031 12.2203 3.12031C9.09632 3.12031 6.36332 5.22731 4.73132 8.40131L7.45832 10.4603C8.10632 8.43631 9.99432 6.32031 12.2203 6.32031Z"
+                            fill="#EA4335"/>
+                    </svg>
+                </div>
+                <div class="social-btn">
+                    <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12 2.04004C6.5 2.04004 2 6.53004 2 12.06C2 16.06 4.66 19.46 8.44 20.73V14.96H6.9V12.06H8.44V9.85004C8.44 7.34004 9.93 5.96004 12.22 5.96004C13.31 5.96004 14.45 6.15004 14.45 6.15004V7.62004H13.19C11.95 7.62004 11.56 8.39004 11.56 9.18004V12.06H14.34L13.89 14.96H11.56V20.73C13.9164 20.0978 15.9622 18.5903 17.3133 16.5219C18.6644 14.4535 19.2354 11.9768 18.94 9.53004C18.6447 7.08329 17.5082 4.83651 15.7273 3.18004C13.9464 1.52356 11.6381 0.580977 9.18 0.540039C7.7 0.500039 6.2 0.820039 4.9 1.40004C3.6 1.99004 2.4 2.82004 1.58 3.88004C0.75 4.94004 0.21 6.19004 0 7.50004C-0.2 8.84004 -0.06 10.18 0.45 11.45C0.9 12.69 1.72 13.78 2.75 14.64C3.8 15.5 5.08 16.15 6.5 16.5V20.68C10.3 19.46 13 16.07 13 12.06C13 6.53004 8.5 2.04004 3 2.04004H2.94H12Z"
+                            fill="#2979FF"/>
+                    </svg>
+                </div>
+                <div class="social-btn">
+                    <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M17.7501 2.5H6.25009C4.17617 2.5 2.5 4.17617 2.5 6.25009V17.7501C2.5 19.8238 4.17617 21.5 6.25009 21.5H17.7501C19.8238 21.5 21.5 19.8238 21.5 17.7501V6.25009C21.5 4.17617 19.8238 2.5 17.7501 2.5Z"
+                            stroke="#FF3D00" stroke-width="2"/>
+                        <path
+                            d="M16.6307 12.7073C16.3912 13.7469 15.7818 14.6609 14.9081 15.2809C14.0344 15.9009 12.9552 16.1835 11.8782 16.0734C10.8012 15.9634 9.79895 15.4679 9.06399 14.6774C8.32903 13.887 7.91369 12.854 7.9004 11.7729C7.88711 10.6917 8.27706 9.64926 9.0005 8.8424C9.72394 8.03554 10.7174 7.51984 11.7919 7.38795C12.8665 7.25606 13.951 7.51757 14.8357 8.12172C15.7204 8.72587 16.3458 9.62978 16.6026 10.6654"
+                            stroke="#00E676" stroke-linecap="round" stroke-width="1.5"/>
+                        <path d="M17.5713 6.4375V6.45" stroke="#2979FF" stroke-linecap="round" stroke-linejoin="round"
+                              stroke-width="2"/>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="register-link">
+                Еще нет аккаунта? <a asp-area="" asp-controller="Home" asp-action="Register">Зарегистрироваться</a>
+            </div>
+        </form>
+    </div>
+</main>
+
+@section Scripts
+{
+    <script src="~/js/login_register.js" asp-append-version="true"></script>
+}

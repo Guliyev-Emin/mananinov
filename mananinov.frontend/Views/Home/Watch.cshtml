@@ -1,0 +1,994 @@
+@{
+    ViewData["Title"] = "Просмотр";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/watch.css" asp-append-version="true"/>
+}
+
+<!-- Основной контент -->
+<main class="main-content watch-content">
+    <!-- Баннер аниме -->
+    <section class="anime-banner">
+        <div class="banner-backdrop" style="background-image: url('favicon.ico');"></div>
+        <div class="banner-content">
+            <div class="anime-poster">
+                <img src="/api/placeholder/300/440" alt="Атака титанов: Финальный сезон">
+                <div class="poster-badges">
+                    <span class="poster-badge ongoing">Онгоинг</span>
+                    <span class="poster-badge age">16+</span>
+                </div>
+            </div>
+            <div class="anime-info">
+                <div class="anime-header">
+                    <h1 class="anime-title">Атака титанов: Финальный сезон</h1>
+                    <div class="anime-original-title">進撃の巨人 The Final Season</div>
+                    <div class="anime-actions">
+                        <button class="action-btn favorite" title="Добавить в избранное">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M12 21.35L10.55 20.03C5.4 15.36 2 12.28 2 8.5C2 5.42 4.42 3 7.5 3C9.24 3 10.91 3.81 12 5.09C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.42 22 8.5C22 12.28 18.6 15.36 13.45 20.04L12 21.35Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="action-btn watched" title="Отметить просмотренным">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M9 16.2L4.8 12L3.4 13.4L9 19L21 7L19.6 5.6L9 16.2Z" stroke="currentColor"
+                                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="action-btn watchlist" title="Добавить в список просмотра">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" stroke="currentColor"
+                                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <button class="action-btn share" title="Поделиться">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M18 8C19.6569 8 21 6.65685 21 5C21 3.34315 19.6569 2 18 2C16.3431 2 15 3.34315 15 5C15 6.65685 16.3431 8 18 8Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                                <path
+                                    d="M6 15C7.65685 15 9 13.6569 9 12C9 10.3431 7.65685 9 6 9C4.34315 9 3 10.3431 3 12C3 13.6569 4.34315 15 6 15Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                                <path
+                                    d="M18 22C19.6569 22 21 20.6569 21 19C21 17.3431 19.6569 16 18 16C16.3431 16 15 17.3431 15 19C15 20.6569 16.3431 22 18 22Z"
+                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                                <path d="M8.59 13.51L15.42 17.49" stroke="currentColor" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M15.41 6.51L8.59 10.49" stroke="currentColor" stroke-width="2"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                        <div class="action-dropdown status-select">
+                            <button class="dropdown-toggle">
+                                Статус просмотра
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2"
+                                          stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Смотрю</a>
+                                <a href="#" class="dropdown-item">Просмотрено</a>
+                                <a href="#" class="dropdown-item">Буду смотреть</a>
+                                <a href="#" class="dropdown-item">Отложено</a>
+                                <a href="#" class="dropdown-item">Брошено</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="anime-meta">
+                    <div class="meta-item rating">
+                        <div class="rating-value">9.8</div>
+                        <div class="rating-stars">
+                            <div class="stars-container">
+                                <div class="stars-filled" style="width: 98%"></div>
+                            </div>
+                            <span class="rating-count">2.4K оценок</span>
+                        </div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Тип</div>
+                        <div class="meta-value">ТВ Сериал</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Эпизоды</div>
+                        <div class="meta-value">16 (12 вышло)</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Сезон</div>
+                        <div class="meta-value">Зима 2023</div>
+                    </div>
+                    <div class="meta-item">
+                        <div class="meta-label">Статус</div>
+                        <div class="meta-value">Онгоинг</div>
+                    </div>
+                </div>
+                <div class="anime-genres">
+                    <a href="#" class="genre-tag">Экшен</a>
+                    <a href="#" class="genre-tag">Драма</a>
+                    <a href="#" class="genre-tag">Фэнтези</a>
+                    <a href="#" class="genre-tag">Военное</a>
+                    <a href="#" class="genre-tag">Сёнен</a>
+                </div>
+                <div class="anime-synopsis">
+                    <p>Последняя битва человечества против титанов подходит к решающей стадии. Эрен Йегер, бывший друг и
+                        соратник Микасы и Армина, теперь угроза для всего мира. Используя силу Атакующего Титана и
+                        Основателя, он намерен активировать Грохот, чтобы уничтожить всех за пределами Парадиса.</p>
+                    <p>В то время как бывшие товарищи вынуждены сражаться друг с другом, судьбы всего мира будут решены
+                        в эпической схватке.</p>
+                </div>
+                <div class="anime-details">
+                    <div class="details-section">
+                        <h3 class="details-heading">Студия</h3>
+                        <div class="details-content">
+                            <a href="#" class="detail-link">MAPPA</a>
+                        </div>
+                    </div>
+                    <div class="details-section">
+                        <h3 class="details-heading">Режиссёр</h3>
+                        <div class="details-content">
+                            <a href="#" class="detail-link">Юитиро Хаяси</a>
+                        </div>
+                    </div>
+                    <div class="details-section">
+                        <h3 class="details-heading">Актеры озвучки</h3>
+                        <div class="details-content voice-actors">
+                            <div class="actor">
+                                <a href="#" class="actor-name">Юки Кадзи</a>
+                                <span class="actor-role">Эрен Йегер</span>
+                            </div>
+                            <div class="actor">
+                                <a href="#" class="actor-name">Юи Исикава</a>
+                                <span class="actor-role">Микаса Аккерман</span>
+                            </div>
+                            <div class="actor">
+                                <a href="#" class="actor-name">Марина Иноуэ</a>
+                                <span class="actor-role">Армин Арлерт</span>
+                            </div>
+                            <div class="actor">
+                                <a href="#" class="actor-name">Хироши Камия</a>
+                                <span class="actor-role">Леви Аккерман</span>
+                            </div>
+                            <a href="#" class="detail-more">Показать всех</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Скриншоты -->
+    <section class="screenshots-section">
+        <div class="section-header">
+            <h2 class="section-title">Скриншоты</h2>
+            <a href="#" class="section-link">Все скриншоты</a>
+        </div>
+        <div class="screenshots-container">
+            <div class="screenshot">
+                <img src="/api/placeholder/280/160" alt="Скриншот 1">
+            </div>
+            <div class="screenshot">
+                <img src="/api/placeholder/280/160" alt="Скриншот 2">
+            </div>
+            <div class="screenshot">
+                <img src="/api/placeholder/280/160" alt="Скриншот 3">
+            </div>
+            <div class="screenshot">
+                <img src="/api/placeholder/280/160" alt="Скриншот 4">
+            </div>
+            <div class="screenshot">
+                <img src="/api/placeholder/280/160" alt="Скриншот 5">
+            </div>
+        </div>
+    </section>
+
+    <!-- Связанные аниме -->
+    <section class="related-anime">
+        <div class="section-header">
+            <h2 class="section-title">Связанные аниме</h2>
+            <a href="#" class="section-link">Все связанные</a>
+        </div>
+        <div class="related-container">
+            <div class="related-item">
+                <div class="related-poster">
+                    <img src="/api/placeholder/120/180" alt="Атака титанов (Сезон 1)">
+                </div>
+                <div class="related-info">
+                    <h3 class="related-title">Атака титанов</h3>
+                    <div class="related-meta">
+                        <span>ТВ Сериал</span>
+                        <span>25 эпизодов</span>
+                        <span>2013</span>
+                    </div>
+                    <div class="related-type">Предыдущий сезон</div>
+                </div>
+            </div>
+            <div class="related-item">
+                <div class="related-poster">
+                    <img src="/api/placeholder/120/180" alt="Атака титанов: Потерянные девушки">
+                </div>
+                <div class="related-info">
+                    <h3 class="related-title">Атака титанов: Потерянные девушки</h3>
+                    <div class="related-meta">
+                        <span>OVA</span>
+                        <span>3 эпизода</span>
+                        <span>2017</span>
+                    </div>
+                    <div class="related-type">Спин-офф</div>
+                </div>
+            </div>
+            <div class="related-item">
+                <div class="related-poster">
+                    <img src="/api/placeholder/120/180" alt="Вторжение титанов: Багровые стрелы">
+                </div>
+                <div class="related-info">
+                    <h3 class="related-title">Вторжение титанов: Багровые стрелы</h3>
+                    <div class="related-meta">
+                        <span>Фильм</span>
+                        <span>2 части</span>
+                        <span>2014-2015</span>
+                    </div>
+                    <div class="related-type">Компиляция</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Плеер и серии -->
+    <section class="player-section">
+        <div class="episode-info">
+            <div class="episode-title">Эпизод 12 — Правосудие</div>
+            <div class="episode-date">Вышел 5 марта 2023</div>
+        </div>
+
+        <div class="watch-with">
+            <span class="watch-with-label">Смотрят вместе с вами:</span>
+            <div class="watch-with-users">
+                <div class="user-avatar">
+                    <img src="/api/placeholder/32/32" alt="User 1">
+                </div>
+                <div class="user-avatar">
+                    <img src="/api/placeholder/32/32" alt="User 2">
+                </div>
+                <div class="user-avatar">
+                    <img src="/api/placeholder/32/32" alt="User 3">
+                </div>
+                <div class="user-avatar more-users">+5</div>
+                <button class="btn btn-sm btn-primary join-watch">Присоединиться</button>
+            </div>
+        </div>
+
+        <div class="player-container">
+            <div class="player-placeholder">
+                <!-- Плеер будет здесь -->
+                <div class="player-overlay">
+                    <button class="play-button">
+                        <svg width="64" height="64" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="2"/>
+                            <path d="M10 8L16 12L10 16V8Z" fill="white" stroke="white" stroke-width="2"
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="player-controls">
+                <div class="quality-selector">
+                    <button class="quality-toggle">
+                        <span>Качество: 1080p</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6 9L12 15L18 9" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="player-options">
+                    <button class="player-option" title="Субтитры">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19 4H5C3.89543 4 3 4.89543 3 6V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V6C21 4.89543 20.1046 4 19 4Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7 9H17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M7 13H13" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="player-option" title="Озвучка">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 6V2M12 6C10.4087 6 8.88258 6.63214 7.75736 7.75736C6.63214 8.88258 6 10.4087 6 12C6 13.5913 6.63214 15.1174 7.75736 16.2426C8.88258 17.3679 10.4087 18 12 18M12 6C13.5913 6 15.1174 6.63214 16.2426 7.75736C17.3679 8.88258 18 10.4087 18 12C18 13.5913 17.3679 15.1174 16.2426 16.2426C15.1174 17.3679 13.5913 18 12 18M12 18V22M8 10V14M16 10V14"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="player-option" title="Скорость">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M12 8V12L15 15M3 12C3 13.1819 3.23279 14.3522 3.68508 15.4442C4.13738 16.5361 4.80031 17.5282 5.63604 18.364C6.47177 19.1997 7.46392 19.8626 8.55585 20.3149C9.64778 20.7672 10.8181 21 12 21C13.1819 21 14.3522 20.7672 15.4442 20.3149C16.5361 19.8626 17.5282 19.1997 18.364 18.364C19.1997 17.5282 19.8626 16.5361 20.3149 15.4442C20.7672 14.3522 21 13.1819 21 12C21 9.61305 20.0518 7.32387 18.364 5.63604C16.6761 3.94821 14.3869 3 12 3C9.61305 3 7.32387 3.94821 5.63604 5.63604C3.94821 7.32387 3 9.61305 3 12Z"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button class="player-option fullscreen" title="Полный экран">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15 3H21M21 3V9M21 3L14 10M9 21H3M3 21V15M3 21L10 14" stroke="currentColor"
+                                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="episodes-list">
+            <div class="episodes-header">
+                <h3>Эпизоды</h3>
+                <div class="episodes-season-select">
+                    <select>
+                        <option>Финальный сезон (Часть 3)</option>
+                        <option>Финальный сезон (Часть 2)</option>
+                        <option>Финальный сезон (Часть 1)</option>
+                        <option>Сезон 3 (Часть 2)</option>
+                        <option>Сезон 3 (Часть 1)</option>
+                        <option>Сезон 2</option>
+                        <option>Сезон 1</option>
+                    </select>
+                </div>
+            </div>
+            <div class="episodes-grid">
+                <a href="#" class="episode-card">
+                    <div class="episode-number">1</div>
+                    <div class="episode-thumbnail">
+                        <img src="/api/placeholder/160/90" alt="Эпизод 1">
+                        <div class="episode-duration">23:45</div>
+                    </div>
+                    <div class="episode-details">
+                        <div class="episode-name">Восход человечества</div>
+                        <div class="episode-date">4 января 2023</div>
+                    </div>
+                </a>
+                <a href="#" class="episode-card">
+                    <div class="episode-number">2</div>
+                    <div class="episode-thumbnail">
+                        <img src="/api/placeholder/160/90" alt="Эпизод 2">
+                        <div class="episode-duration">23:45</div>
+                    </div>
+                    <div class="episode-details">
+                        <div class="episode-name">Лезвие войны</div>
+                        <div class="episode-date">11 января 2023</div>
+                    </div>
+                </a>
+                <a href="#" class="episode-card">
+                    <div class="episode-number">3</div>
+                    <div class="episode-thumbnail">
+                        <img src="/api/placeholder/160/90" alt="Эпизод 3">
+                        <div class="episode-duration">23:45</div>
+                    </div>
+                    <div class="episode-details">
+                        <div class="episode-name">Союз</div>
+                        <div class="episode-date">18 января 2023</div>
+                    </div>
+                </a>
+                <a href="#" class="episode-card watched">
+                    <div class="episode-number">11</div>
+                    <div class="episode-thumbnail">
+                        <img src="/api/placeholder/160/90" alt="Эпизод 11">
+                        <div class="episode-duration">23:45</div>
+                    </div>
+                    <div class="episode-details">
+                        <div class="episode-name">Гнев</div>
+                        <div class="episode-date">27 февраля 2023</div>
+                    </div>
+                </a>
+                <a href="#" class="episode-card current">
+                    <div class="episode-number">12</div>
+                    <div class="episode-thumbnail">
+                        <img src="/api/placeholder/160/90" alt="Эпизод 12">
+                        <div class="episode-duration">23:45</div>
+                    </div>
+                    <div class="episode-details">
+                        <div class="episode-name">Правосудие</div>
+                        <div class="episode-date">5 марта 2023</div>
+                    </div>
+                </a>
+                <a href="#" class="episode-card disabled">
+                    <div class="episode-number">13</div>
+                    <div class="episode-thumbnail">
+                        <img src="/api/placeholder/160/90" alt="Эпизод 13">
+                        <div class="episode-duration">--:--</div>
+                        <div class="episode-lock">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z"
+                                    fill="rgba(0,0,0,0.5)" stroke="white" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"/>
+                                <path
+                                    d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11"
+                                    stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="episode-details">
+                        <div class="episode-name">Эхо</div>
+                        <div class="episode-date">Скоро</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Похожие аниме -->
+    <section class="similar-anime">
+        <div class="section-header">
+            <h2 class="section-title">Похожие аниме</h2>
+            <a href="#" class="section-link">Больше похожих</a>
+        </div>
+        <div class="anime-scroll-container">
+            <button class="scroll-arrow scroll-left">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 19L8 12L15 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+            <div class="anime-cards-container">
+                <div class="anime-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="Клинок, рассекающий демонов">
+                        <div class="anime-card-badges">
+                            <span class="anime-card-badge completed">Завершен</span>
+                        </div>
+                        <div class="anime-card-stats">
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.0489 3.92705C11.3483 3.00574 12.6517 3.00574 12.9511 3.92705L14.0206 7.21885C14.1545 7.63087 14.5385 7.90983 14.9717 7.90983H18.4329C19.4016 7.90983 19.8044 9.14945 19.0207 9.71885L16.2205 11.7533C15.8684 12.0079 15.7234 12.4593 15.8572 12.8713L16.9268 16.1631C17.2261 17.0844 16.1717 17.8506 15.388 17.2812L12.5878 15.2467C12.2356 14.9921 11.7644 14.9921 11.4122 15.2467L8.61204 17.2812C7.82833 17.8506 6.77385 17.0844 7.0732 16.1631L8.14277 12.8713C8.27665 12.4593 8.13159 12.0079 7.7795 11.7533L4.97927 9.71885C4.19556 9.14945 4.59838 7.90983 5.56712 7.90983H9.02832C9.46154 7.90983 9.8455 7.63087 9.97937 7.21885L11.0489 3.92705Z"
+                                        fill="#FFD700"/>
+                                </svg>
+                                <span>9.7</span>
+                            </div>
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                        fill="currentColor"/>
+                                    <path
+                                        d="M2 12C2 12 5.63636 5 12 5C18.3636 5 22 12 22 12C22 12 18.3636 19 12 19C5.63636 19 2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                                <span>5.8M</span>
+                            </div>
+                        </div>
+                        <div class="anime-card-overlay">
+                            <div class="overlay-content">
+                                <h4>Клинок, рассекающий демонов</h4>
+                                <div class="overlay-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Статус:</span>
+                                        <span class="detail-value">Завершён</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Серии:</span>
+                                        <span class="detail-value">26</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Сезон:</span>
+                                        <span class="detail-value">Весна 2019</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Жанры:</span>
+                                        <span class="detail-value">Экшен, Приключения, Сверхъестественное</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Страна:</span>
+                                        <span class="detail-value">Япония</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Тип:</span>
+                                        <span class="detail-value">ТВ Сериал</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Возраст:</span>
+                                        <span class="detail-value">16+</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline btn-sm">Смотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anime-card-info">
+                        <h3 class="anime-card-title">Клинок, рассекающий демонов</h3>
+                        <div class="anime-card-meta">
+                            <span class="meta-item">2019</span>
+                            <span class="meta-item">26 серий</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anime-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="Токийский гуль">
+                        <div class="anime-card-badges">
+                            <span class="anime-card-badge completed">Завершен</span>
+                        </div>
+                        <div class="anime-card-stats">
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.0489 3.92705C11.3483 3.00574 12.6517 3.00574 12.9511 3.92705L14.0206 7.21885C14.1545 7.63087 14.5385 7.90983 14.9717 7.90983H18.4329C19.4016 7.90983 19.8044 9.14945 19.0207 9.71885L16.2205 11.7533C15.8684 12.0079 15.7234 12.4593 15.8572 12.8713L16.9268 16.1631C17.2261 17.0844 16.1717 17.8506 15.388 17.2812L12.5878 15.2467C12.2356 14.9921 11.7644 14.9921 11.4122 15.2467L8.61204 17.2812C7.82833 17.8506 6.77385 17.0844 7.0732 16.1631L8.14277 12.8713C8.27665 12.4593 8.13159 12.0079 7.7795 11.7533L4.97927 9.71885C4.19556 9.14945 4.59838 7.90983 5.56712 7.90983H9.02832C9.46154 7.90983 9.8455 7.63087 9.97937 7.21885L11.0489 3.92705Z"
+                                        fill="#FFD700"/>
+                                </svg>
+                                <span>9.3</span>
+                            </div>
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                        fill="currentColor"/>
+                                    <path
+                                        d="M2 12C2 12 5.63636 5 12 5C18.3636 5 22 12 22 12C22 12 18.3636 19 12 19C5.63636 19 2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                                <span>4.2M</span>
+                            </div>
+                        </div>
+                        <div class="anime-card-overlay">
+                            <div class="overlay-content">
+                                <h4>Токийский гуль</h4>
+                                <div class="overlay-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Статус:</span>
+                                        <span class="detail-value">Завершён</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Серии:</span>
+                                        <span class="detail-value">12</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Сезон:</span>
+                                        <span class="detail-value">Лето 2014</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Жанры:</span>
+                                        <span class="detail-value">Экшен, Драма, Ужасы, Сверхъестественное</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Страна:</span>
+                                        <span class="detail-value">Япония</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Тип:</span>
+                                        <span class="detail-value">ТВ Сериал</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Возраст:</span>
+                                        <span class="detail-value">18+</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline btn-sm">Смотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anime-card-info">
+                        <h3 class="anime-card-title">Токийский гуль</h3>
+                        <div class="anime-card-meta">
+                            <span class="meta-item">2014</span>
+                            <span class="meta-item">12 серий</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anime-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="Обещанный Неверленд">
+                        <div class="anime-card-badges">
+                            <span class="anime-card-badge completed">Завершен</span>
+                        </div>
+                        <div class="anime-card-stats">
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.0489 3.92705C11.3483 3.00574 12.6517 3.00574 12.9511 3.92705L14.0206 7.21885C14.1545 7.63087 14.5385 7.90983 14.9717 7.90983H18.4329C19.4016 7.90983 19.8044 9.14945 19.0207 9.71885L16.2205 11.7533C15.8684 12.0079 15.7234 12.4593 15.8572 12.8713L16.9268 16.1631C17.2261 17.0844 16.1717 17.8506 15.388 17.2812L12.5878 15.2467C12.2356 14.9921 11.7644 14.9921 11.4122 15.2467L8.61204 17.2812C7.82833 17.8506 6.77385 17.0844 7.0732 16.1631L8.14277 12.8713C8.27665 12.4593 8.13159 12.0079 7.7795 11.7533L4.97927 9.71885C4.19556 9.14945 4.59838 7.90983 5.56712 7.90983H9.02832C9.46154 7.90983 9.8455 7.63087 9.97937 7.21885L11.0489 3.92705Z"
+                                        fill="#FFD700"/>
+                                </svg>
+                                <span>9.4</span>
+                            </div>
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                        fill="currentColor"/>
+                                    <path
+                                        d="M2 12C2 12 5.63636 5 12 5C18.3636 5 22 12 22 12C22 12 18.3636 19 12 19C5.63636 19 2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                                <span>3.7M</span>
+                            </div>
+                        </div>
+                        <div class="anime-card-overlay">
+                            <div class="overlay-content">
+                                <h4>Обещанный Неверленд</h4>
+                                <div class="overlay-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Статус:</span>
+                                        <span class="detail-value">Завершён</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Серии:</span>
+                                        <span class="detail-value">12</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Сезон:</span>
+                                        <span class="detail-value">Зима 2019</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Жанры:</span>
+                                        <span class="detail-value">Мистика, Психологическое, Ужасы</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Страна:</span>
+                                        <span class="detail-value">Япония</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Тип:</span>
+                                        <span class="detail-value">ТВ Сериал</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Возраст:</span>
+                                        <span class="detail-value">16+</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline btn-sm">Смотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anime-card-info">
+                        <h3 class="anime-card-title">Обещанный Неверленд</h3>
+                        <div class="anime-card-meta">
+                            <span class="meta-item">2019</span>
+                            <span class="meta-item">12 серий</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="anime-card">
+                    <div class="anime-card-image">
+                        <img src="/api/placeholder/240/340" alt="Тетрадь смерти">
+                        <div class="anime-card-stats">
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.0489 3.92705C11.3483 3.00574 12.6517 3.00574 12.9511 3.92705L14.0206 7.21885C14.1545 7.63087 14.5385 7.90983 14.9717 7.90983H18.4329C19.4016 7.90983 19.8044 9.14945 19.0207 9.71885L16.2205 11.7533C15.8684 12.0079 15.7234 12.4593 15.8572 12.8713L16.9268 16.1631C17.2261 17.0844 16.1717 17.8506 15.388 17.2812L12.5878 15.2467C12.2356 14.9921 11.7644 14.9921 11.4122 15.2467L8.61204 17.2812C7.82833 17.8506 6.77385 17.0844 7.0732 16.1631L8.14277 12.8713C8.27665 12.4593 8.13159 12.0079 7.7795 11.7533L4.97927 9.71885C4.19556 9.14945 4.59838 7.90983 5.56712 7.90983H9.02832C9.46154 7.90983 9.8455 7.63087 9.97937 7.21885L11.0489 3.92705Z"
+                                        fill="#FFD700"/>
+                                </svg>
+                                <span>9.5</span>
+                            </div>
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                        fill="currentColor"/>
+                                    <path
+                                        d="M2 12C2 12 5.63636 5 12 5C18.3636 5 22 12 22 12C22 12 18.3636 19 12 19C5.63636 19 2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                                <span>8.1M</span>
+                            </div>
+                        </div>
+                        <div class="anime-card-overlay">
+                            <div class="overlay-content">
+                                <h4>Тетрадь смерти</h4>
+                                <div class="overlay-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Статус:</span>
+                                        <span class="detail-value">Завершён</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Серии:</span>
+                                        <span class="detail-value">37</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Сезон:</span>
+                                        <span class="detail-value">Осень 2006</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Жанры:</span>
+                                        <span class="detail-value">Мистика, Психологическое, Триллер</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Страна:</span>
+                                        <span class="detail-value">Япония</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Тип:</span>
+                                        <span class="detail-value">ТВ Сериал</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Возраст:</span>
+                                        <span class="detail-value">16+</span>
+                                    </div>
+                                </div>
+                                <a href="#" class="btn btn-outline btn-sm">Смотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anime-card-info">
+                        <h3 class="anime-card-title">Тетрадь смерти</h3>
+                        <div class="anime-card-meta">
+                            <span class="meta-item">2006</span>
+                            <span class="meta-item">37 серий</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="scroll-arrow scroll-right">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5L16 12L9 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Комментарии -->
+    <section class="comments-section">
+        <div class="section-header">
+            <h2 class="section-title">Комментарии</h2>
+            <div class="comments-sort">
+                <button class="sort-button active">Новые</button>
+                <button class="sort-button">Популярные</button>
+            </div>
+        </div>
+
+        <div class="comments-container">
+            <div class="comment-form">
+                <div class="comment-user-avatar">
+                    <img src="/api/placeholder/40/40" alt="Ваш аватар">
+                </div>
+                <div class="comment-input-container">
+                    <textarea class="comment-input" placeholder="Оставьте комментарий..."></textarea>
+                    <div class="comment-actions">
+                        <button class="btn btn-primary btn-sm">Отправить</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comments-list">
+                <div class="comment-item">
+                    <div class="comment-user-avatar">
+                        <img src="/api/placeholder/40/40" alt="Avatar">
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <div class="comment-user-info">
+                                <a href="#" class="comment-username">MikasaFan</a>
+                                <span class="comment-time">2 часа назад</span>
+                            </div>
+                            <div class="comment-actions-dropdown">
+                                <button class="dropdown-toggle">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+                                            fill="currentColor"/>
+                                        <path
+                                            d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+                                            fill="currentColor"/>
+                                        <path
+                                            d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+                                            fill="currentColor"/>
+                                    </svg>
+                                </button>
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item">Ответить</a>
+                                    <a href="#" class="dropdown-item">Пожаловаться</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment-text">
+                            <p>Вау, этот эпизод был просто невероятным! Сцена битвы, когда Микаса и Леви объединились,
+                                чтобы атаковать Эрена, была снята просто потрясающе. Анимация на высшем уровне!</p>
+                        </div>
+                        <div class="comment-footer">
+                            <div class="comment-votes">
+                                <button class="vote-btn upvote">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20V4M12 4L5 11M12 4L19 11" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>42</span>
+                                </button>
+                                <button class="vote-btn downvote">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 4V20M12 20L5 13M12 20L19 13" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>3</span>
+                                </button>
+                            </div>
+                            <button class="reply-btn">Ответить</button>
+                        </div>
+
+                        <!-- Вложенные комментарии -->
+                        <div class="nested-comments">
+                            <div class="comment-item">
+                                <div class="comment-user-avatar">
+                                    <img src="/api/placeholder/40/40" alt="Avatar">
+                                </div>
+                                <div class="comment-content">
+                                    <div class="comment-header">
+                                        <div class="comment-user-info">
+                                            <a href="#" class="comment-username">ErenJaeger</a>
+                                            <span class="comment-time">1 час назад</span>
+                                        </div>
+                                        <div class="comment-actions-dropdown">
+                                            <button class="dropdown-toggle">
+                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M12 4V20M12 20L5 13M12 20L19 13" stroke="currentColor"
+                                                          stroke-width="2" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                </svg>
+                                                <span>2</span>
+                                            </button>
+                                        </div>
+                                        <button class="reply-btn">Ответить</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-item">
+                    <div class="comment-user-avatar">
+                        <img src="/api/placeholder/40/40" alt="Avatar">
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <div class="comment-user-info">
+                                <a href="#" class="comment-username">TitanSlayer99</a>
+                                <span class="comment-time">5 часов назад</span>
+                            </div>
+                            <div class="comment-actions-dropdown">
+                                <button class="dropdown-toggle">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+                                            fill="currentColor"/>
+                                        <path
+                                            d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+                                            fill="currentColor"/>
+                                        <path
+                                            d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+                                            fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comment-text">
+                            <p>Я не могу поверить, что сериал скоро закончится. Уже сейчас "Атака титанов" - один из
+                                самых эпичных аниме всех времен. MAPPA превзошли ожидания с анимацией финального
+                                сезона.</p>
+                        </div>
+                        <div class="comment-footer">
+                            <div class="comment-votes">
+                                <button class="vote-btn upvote">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20V4M12 4L5 11M12 4L19 11" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>37</span>
+                                </button>
+                                <button class="vote-btn downvote">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 4V20M12 20L5 13M12 20L19 13" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>1</span>
+                                </button>
+                            </div>
+                            <button class="reply-btn">Ответить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="comment-item">
+                    <div class="comment-user-avatar">
+                        <img src="/api/placeholder/40/40" alt="Avatar">
+                    </div>
+                    <div class="comment-content">
+                        <div class="comment-header">
+                            <div class="comment-user-info">
+                                <a href="#" class="comment-username">ArminTheStrategist</a>
+                                <span class="comment-time">вчера</span>
+                            </div>
+                            <div class="comment-actions-dropdown">
+                                <button class="dropdown-toggle">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12 13C12.5523 13 13 12.5523 13 12C13 11.4477 12.5523 11 12 11C11.4477 11 11 11.4477 11 12C11 12.5523 11.4477 13 12 13Z"
+                                            fill="currentColor"/>
+                                        <path
+                                            d="M12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6Z"
+                                            fill="currentColor"/>
+                                        <path
+                                            d="M12 20C12.5523 20 13 19.5523 13 19C13 18.4477 12.5523 18 12 18C11.4477 18 11 18.4477 11 19C11 19.5523 11.4477 20 12 20Z"
+                                            fill="currentColor"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="comment-text">
+                            <p>Финальный сезон поднимает очень важные вопросы о морали, войне и цикле ненависти. Это
+                                гораздо глубже, чем просто экшн-аниме. Чью сторону вы поддерживаете? Я лично за Альянс,
+                                но понимаю мотивацию Эрена.</p>
+                        </div>
+                        <div class="comment-footer">
+                            <div class="comment-votes">
+                                <button class="vote-btn upvote">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 20V4M12 4L5 11M12 4L19 11" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>54</span>
+                                </button>
+                                <button class="vote-btn downvote">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 4V20M12 20L5 13M12 20L19 13" stroke="currentColor" stroke-width="2"
+                                              stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    <span>8</span>
+                                </button>
+                            </div>
+                            <button class="reply-btn">Ответить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comments-pagination">
+                <button class="pagination-button active">1</button>
+                <button class="pagination-button">2</button>
+                <button class="pagination-button">3</button>
+                <span class="pagination-divider">...</span>
+                <button class="pagination-button">12</button>
+            </div>
+        </div>
+    </section>
+</main>
+
+@section Scripts {
+    <link rel="stylesheet" href="~/js/watch.js" asp-append-version="true"/>
+}
