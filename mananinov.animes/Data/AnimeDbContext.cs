@@ -8,7 +8,6 @@ public class AnimeDbContext(DbContextOptions<AnimeDbContext> options) : DbContex
     public DbSet<Anime> Animes { get; set; }
     
     public DbSet<AnimeTitles> AnimeTitles { get; set; }
-    public DbSet<AnimeSynonyms> AnimeSynonyms { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -52,10 +51,25 @@ public class AnimeDbContext(DbContextOptions<AnimeDbContext> options) : DbContex
         modelBuilder.Entity<AnimeSynonyms>().Property(s => s.AnimeTitleId).HasColumnName("anime_title_id");
         modelBuilder.Entity<AnimeSynonyms>().Property(s => s.Names).HasColumnName("names");
         
+        modelBuilder.Entity<AnimeImages>().ToTable("anime_images");
+        modelBuilder.Entity<AnimeImages>().Property(s => s.Id).HasColumnName("id");
+        modelBuilder.Entity<AnimeImages>().HasKey(s => s.Id);
+        modelBuilder.Entity<AnimeImages>().Property(t => t.AnimeId).HasColumnName("anime_id");
+        modelBuilder.Entity<AnimeImages>().Property(s => s.ImageType).HasColumnName("image_type");
+        modelBuilder.Entity<AnimeImages>().Property(s => s.PreviewUrl).HasColumnName("preview_url");
+        modelBuilder.Entity<AnimeImages>().Property(s => s.Title).HasColumnName("file_name");
+        modelBuilder.Entity<AnimeImages>().Property(s => s.Data).HasColumnName("data");
+
+        modelBuilder.Entity<AnimeGenres>().ToTable("anime_genres");
+        modelBuilder.Entity<AnimeGenres>().Property(s => s.Id).HasColumnName("id");
+        modelBuilder.Entity<AnimeGenres>().HasKey(s => s.Id);
+        modelBuilder.Entity<AnimeGenres>().Property(s => s.AnimeId).HasColumnName("anime_id");
+        modelBuilder.Entity<AnimeGenres>().Property(s => s.GenreId).HasColumnName("genre_id");
+        
         // Связь Anime -> AnimeTitles (один-к-одному)
         modelBuilder.Entity<Anime>()
             .HasOne(a => a.AnimeTitles)
-            .WithOne(t => t.Anime)
+            .WithOne()
             .HasForeignKey<AnimeTitles>(t => t.AnimeId);
         
         // Связь AnimeTitles -> AnimeSynonyms (один-ко-многим)
@@ -63,5 +77,18 @@ public class AnimeDbContext(DbContextOptions<AnimeDbContext> options) : DbContex
             .HasMany(t => t.Synonyms)
             .WithOne(s => s.AnimeTitles)
             .HasForeignKey(s => s.AnimeTitleId);
+        
+        // Связь Anime -> AnimeImages (один-к-одному)
+        modelBuilder.Entity<Anime>()
+            .HasOne(a => a.Images)
+            .WithOne()
+            .HasForeignKey<AnimeImages>(i => i.AnimeId);
+        
+        // Связь Anime -> AnimeGenres (один-к-одному)
+        modelBuilder.Entity<Anime>()
+            .HasMany(a => a.AnimeGenres)
+            .WithOne()
+            .HasForeignKey(t => t.AnimeId);
+        
     }
 }

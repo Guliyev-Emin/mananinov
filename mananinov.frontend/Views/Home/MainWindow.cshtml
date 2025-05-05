@@ -1,3 +1,6 @@
+@using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata
+@Model mananinov.animes.Models.Anime
+
 @section Styles {
     <link rel="stylesheet" href="~/css/home.css" asp-append-version="true"/>
 }
@@ -175,11 +178,92 @@
                 </div>
 
                 <!-- Дополнительные карточки (пустышки для демонстрации прокрутки) -->
+
+
+                <div class="anime-card">
+                    <div class="anime-card-image">
+                        <img src="@Model.Images.ImageUrl" alt="@Model.NameOfficial">
+                        <div class="anime-card-badges">
+                            <span class="anime-card-badge ongoing">@Model.Status</span>
+                        </div>
+                        <div class="anime-card-stats">
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11.0489 3.92705C11.3483 3.00574 12.6517 3.00574 12.9511 3.92705L14.0206 7.21885C14.1545 7.63087 14.5385 7.90983 14.9717 7.90983H18.4329C19.4016 7.90983 19.8044 9.14945 19.0207 9.71885L16.2205 11.7533C15.8684 12.0079 15.7234 12.4593 15.8572 12.8713L16.9268 16.1631C17.2261 17.0844 16.1717 17.8506 15.388 17.2812L12.5878 15.2467C12.2356 14.9921 11.7644 14.9921 11.4122 15.2467L8.61204 17.2812C7.82833 17.8506 6.77385 17.0844 7.0732 16.1631L8.14277 12.8713C8.27665 12.4593 8.13159 12.0079 7.7795 11.7533L4.97927 9.71885C4.19556 9.14945 4.59838 7.90983 5.56712 7.90983H9.02832C9.46154 7.90983 9.8455 7.63087 9.97937 7.21885L11.0489 3.92705Z"
+                                        fill="#FFD700"/>
+                                </svg>
+                                <span>@Model.StatsScores</span>
+                            </div>
+                            <div class="stats-item">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M14 12C14 13.1046 13.1046 14 12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12Z"
+                                        fill="currentColor"/>
+                                    <path
+                                        d="M2 12C2 12 5.63636 5 12 5C18.3636 5 22 12 22 12C22 12 18.3636 19 12 19C5.63636 19 2 12 2 12Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round"/>
+                                </svg>
+                                <span>1.2M</span>
+                            </div>
+                        </div>
+                        <div class="anime-card-overlay">
+                            <div class="overlay-content">
+                                <h4>@Model.AnimeTitles.NameRussian</h4>
+                                <div class="overlay-details">
+                                    <div class="detail-item">
+                                        <span class="detail-label">Статус:</span>
+                                        <span class="detail-value">@Model.Status</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Серии:</span>
+                                        <span class="detail-value">@Model.Episodes/@Model.EpisodesPlan</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Сезон:</span>
+                                        <span class="detail-value">@Model.Season</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Жанры:</span>
+                                        <span class="detail-value">@Model.Kind</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Страна:</span>
+                                        <span class="detail-value">Япония</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Тип:</span>
+                                        <span class="detail-value">@Model.Kind</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="detail-label">Возраст:</span>
+                                        <span class="detail-value">@Model.RatingAge+</span>
+                                    </div>
+                                </div>
+                                <a asp-area="" asp-controller="Home" asp-action="Watch" asp-route-id="@Model.Id" class="btn btn-outline btn-sm">Смотреть</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="anime-card-info">
+                        <h3 class="anime-card-title">@Model.AnimeTitles.NameRussian</h3>
+                        <div class="anime-card-meta">
+                            <span class="meta-item">@Model.ReleaseDate</span>
+                            <span class="meta-item">@Model.Episodes</span>
+                        </div>
+                    </div>
+                </div>
+
+
                 <div class="anime-card placeholder-card">
                     <div class="anime-card-image">
                         <img src="/api/placeholder/240/340" alt="">
                     </div>
                 </div>
+
+
                 <div class="anime-card placeholder-card">
                     <div class="anime-card-image">
                         <img src="/api/placeholder/240/340" alt="">

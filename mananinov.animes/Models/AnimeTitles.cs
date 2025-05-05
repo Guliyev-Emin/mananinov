@@ -9,6 +9,5 @@ public class AnimeTitles
     public string NameEnglish { get; set; }
     public string NameJapanese { get; set; }
     public string NameAzerbaijans { get; set; }
-    public Anime Anime { get; set; }
     public ICollection<AnimeSynonyms> Synonyms { get; set; }
 }

@@ -8,4 +8,9 @@ public class AnimeImages
     public string PreviewUrl { get; set; }
     public string Title { get; set; }
     public byte[] Data { get; set; }
+
+    private string base64String => Convert.ToBase64String(Data);
+
+    public string ImageUrl => $"data:image/jpeg;base64,{base64String}";
+
 }

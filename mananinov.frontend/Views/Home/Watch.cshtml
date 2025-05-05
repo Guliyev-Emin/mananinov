@@ -1,5 +1,7 @@
+
 @{
-    ViewData["Title"] = "Просмотр";
+    var name = Model.AnimeTitles.NameRussian;
+    ViewData["Title"] = $"mananinov - {name}";
 }
 
 @section Styles {
@@ -13,16 +15,16 @@
         <div class="banner-backdrop" style="background-image: url('favicon.ico');"></div>
         <div class="banner-content">
             <div class="anime-poster">
-                <img src="/api/placeholder/300/440" alt="Атака титанов: Финальный сезон">
+                <img src="@Model.Images.ImageUrl" alt="@Model.NameOfficial">
                 <div class="poster-badges">
-                    <span class="poster-badge ongoing">Онгоинг</span>
-                    <span class="poster-badge age">16+</span>
+                    <span class="poster-badge ongoing">@Model.Status</span>
+                    <span class="poster-badge age">@Model.RatingAge+</span>
                 </div>
             </div>
             <div class="anime-info">
                 <div class="anime-header">
-                    <h1 class="anime-title">Атака титанов: Финальный сезон</h1>
-                    <div class="anime-original-title">進撃の巨人 The Final Season</div>
+                    <h1 class="anime-title">@Model.AnimeTitles.NameRussian</h1>
+                    <div class="anime-original-title">@Model.AnimeTitles.NameJapanese</div>
                     <div class="anime-actions">
                         <button class="action-btn favorite" title="Добавить в избранное">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -89,7 +91,7 @@
                 </div>
                 <div class="anime-meta">
                     <div class="meta-item rating">
-                        <div class="rating-value">9.8</div>
+                        <div class="rating-value">@Model.StatsScores</div>
                         <div class="rating-stars">
                             <div class="stars-container">
                                 <div class="stars-filled" style="width: 98%"></div>
@@ -99,19 +101,19 @@
                     </div>
                     <div class="meta-item">
                         <div class="meta-label">Тип</div>
-                        <div class="meta-value">ТВ Сериал</div>
+                        <div class="meta-value">@Model.Kind</div>
                     </div>
                     <div class="meta-item">
                         <div class="meta-label">Эпизоды</div>
-                        <div class="meta-value">16 (12 вышло)</div>
+                        <div class="meta-value">@Model.EpisodesPlan (@Model.Episodes вышло)</div>
                     </div>
                     <div class="meta-item">
                         <div class="meta-label">Сезон</div>
-                        <div class="meta-value">Зима 2023</div>
+                        <div class="meta-value">@Model.Season</div>
                     </div>
                     <div class="meta-item">
                         <div class="meta-label">Статус</div>
-                        <div class="meta-value">Онгоинг</div>
+                        <div class="meta-value">@Model.Status</div>
                     </div>
                 </div>
                 <div class="anime-genres">
@@ -122,23 +124,19 @@
                     <a href="#" class="genre-tag">Сёнен</a>
                 </div>
                 <div class="anime-synopsis">
-                    <p>Последняя битва человечества против титанов подходит к решающей стадии. Эрен Йегер, бывший друг и
-                        соратник Микасы и Армина, теперь угроза для всего мира. Используя силу Атакующего Титана и
-                        Основателя, он намерен активировать Грохот, чтобы уничтожить всех за пределами Парадиса.</p>
-                    <p>В то время как бывшие товарищи вынуждены сражаться друг с другом, судьбы всего мира будут решены
-                        в эпической схватке.</p>
+                    <p>@Model.Description</p>
                 </div>
                 <div class="anime-details">
                     <div class="details-section">
                         <h3 class="details-heading">Студия</h3>
                         <div class="details-content">
-                            <a href="#" class="detail-link">MAPPA</a>
+                            <a href="#" class="detail-link">Ссылка на студию</a>
                         </div>
                     </div>
                     <div class="details-section">
                         <h3 class="details-heading">Режиссёр</h3>
                         <div class="details-content">
-                            <a href="#" class="detail-link">Юитиро Хаяси</a>
+                            <a href="#" class="detail-link">ФИО Режиссера</a>
                         </div>
                     </div>
                     <div class="details-section">
